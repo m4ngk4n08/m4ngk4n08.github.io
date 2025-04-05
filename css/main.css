@@ -1,0 +1,172 @@
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #444;
+    color: black;
+}
+
+/* Banner Section */
+/* Banner Section */
+#banner {
+    width: 100%;
+    height: 300px; /* Fixed height for the banner */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+#banner img {
+    padding-top:300px;
+    width: 100%; /* Ensure the image does not exceed the width of the container */
+}
+
+/* Main Content Section */
+#main-content {
+    width: 80%;
+    margin: 20px auto;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom:30px;
+}
+
+
+/* Decryption Section */
+#decryption-section, #vault-section {
+    flex: 1;
+    width: 50%;
+}
+
+#decryptionKey {
+    width: 60%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#vaultKey {
+    width: 60%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#section-result {
+    width: 60%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#decryptionBtn, #vaultBtn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#decryptionBtn:disabled, #vaultBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* SQL Query Section */
+#sql-query-section {
+    margin-bottom: 30px;
+}
+
+#sqlQuery {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+#sqlQueryBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Output Section */
+#output {
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+#output table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Ensure table layout allows word wrapping */
+}
+
+#output th, #output td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Enable word wrapping */
+    word-wrap: break-word; /* Fallback for older browsers */
+    max-width: 200px; /* Limit cell width */   
+    background-color: grey;
+}
+
+/* #output th {
+} */
