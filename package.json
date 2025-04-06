@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "vite": "^6.2.5",
-    "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "gh-pages": "^6.1.1"
   },
   "scripts": {
@@ -27,13 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m4ngk4n08/m4ngk4n08.github.io.git"
+    "url": "git+https://github.com/angel-angel/Github-Pages.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/m4ngk4n08/m4ngk4n08.github.io/issues"
+    "url": "https://github.com/angel-angel/Github-Pages/issues"
   },
-  "homepage": "https://github.com/m4ngk4n08/m4ngk4n08.github.io#readme"
+  "homepage": "https://github.com/angel-angel/Github-Pages#readme"
 }
