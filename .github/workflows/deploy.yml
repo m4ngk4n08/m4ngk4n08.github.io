@@ -26,7 +26,9 @@ jobs:
         run: npm install
         
       - name: Build
-        run: npm run build
+        run: |
+          echo "Building with base URL: /Github-Pages/"
+          npm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v4

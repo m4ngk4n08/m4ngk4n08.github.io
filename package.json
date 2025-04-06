@@ -22,17 +22,18 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "postinstall": "echo 'Base URL set to /Github-Pages/'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angel-angel/Github-Pages.git"
+    "url": "git+https://github.com/m4ngk4n08/Github-Pages.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/angel-angel/Github-Pages/issues"
+    "url": "https://github.com/m4ngk4n08/Github-Pages/issues"
   },
-  "homepage": "https://github.com/angel-angel/Github-Pages#readme"
+  "homepage": "https://github.com/m4ngk4n08/Github-Pages#readme"
 }
