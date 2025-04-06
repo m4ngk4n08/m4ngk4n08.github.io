@@ -1,3 +1,5 @@
+import { Database } from './database.js';
+
 document.addEventListener("DOMContentLoaded", function(){
     // Initialize CodeMirror for SQL editor  
     const sqlEditor = CodeMirror.fromTextArea(document.getElementById("sqlQuery"),{
@@ -17,26 +19,22 @@ document.addEventListener("DOMContentLoaded", function(){
                 runQuery(sqlQuery);
             }
         }
-    })
+    });
 
     document.getElementById("sqlQueryBtn").addEventListener("click", function(){
         const sqlQuery = sqlEditor.getValue();
-        runQuery(sqlQuery)
-    })
-})
+        runQuery(sqlQuery);
+    });
+});
 
 function runQuery(sqlQuery){
-    if(!db){
-        console.error("Database not loaded yet!")
-        return; 
-    }
-
     if(sqlQuery === ""){
         return;
     }
 
     try{
-        const result = db.exec(sqlQuery);
+        const result = Database.execute(sqlQuery);
+        
         // validate that the query starts with SELECT
         if(!sqlQuery.toLowerCase().startsWith("select")){
             document.getElementById("output").innerHTML = "Only select queries are allowed.";
@@ -53,12 +51,10 @@ function runQuery(sqlQuery){
     } catch(error) {
         document.getElementById("output").innerHTML = "Error: " + error.message;
     }
-
 }
 
 function displayResultAsTable(columns, rows) {
     const table = document.createElement("table");
-    const db = window.DatabaseModule.db;
     table.setAttribute("border", "1");
     table.style.borderCollapse = "collapse";
     table.style.width = "100%";
@@ -66,7 +62,7 @@ function displayResultAsTable(columns, rows) {
     
     /* encrypted columns */
     const statementColumnIndex = columns.indexOf("statement");
-    var res = db.exec("select decrypted from encrypted_keys where table_name = 'statement'");
+    var res = Database.execute("select decrypted from encrypted_keys where table_name = 'statement'");
     if(statementColumnIndex !== -1 && res[0].values[0][0] === 1){
         isEncrypted = false;
     }
@@ -76,8 +72,8 @@ function displayResultAsTable(columns, rows) {
     const headerRow = document.createElement("tr");
     columns.forEach(col => {
         const th = document.createElement("th");
-            th.innerText = col;
-            headerRow.appendChild(th);
+        th.innerText = col;
+        headerRow.appendChild(th);
     });
     table.appendChild(headerRow);
 
@@ -91,8 +87,7 @@ function displayResultAsTable(columns, rows) {
             if(cell === row[statementColumnIndex] && isEncrypted){
                 // encrypt statement column
                 td.textContent = generateRandomStr();
-                
-            }else{
+            } else {
                 td.textContent = cell;
             }
             dataRow.appendChild(td);

@@ -8,15 +8,14 @@
         <!-- External Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material.min.css">
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
 
         <!-- External Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"></script>
-        <script src="./lib/sql-wasm.js"></script>
-        <script defer src="./js/sql-setup.js"></script>
-        <script defer src="./js/key-section.js"></script>
-        <script defer src="./js/sqlQuery-editor.js"></script>
+        <script src="/lib/sql-wasm.js"></script>
+        <script type="module" src="/js/database.js"></script>
+        <script type="module" src="/js/sqlQuery-editor.js"></script>
     </head>
 <body>
     <!-- Banner Section -->
@@ -28,17 +27,17 @@
     <div id="main-content">
         <h1>"The Encrypted Trail"</h1>
         <p>
-            Step into the shoes of a digital detective in SQL Sleuth: The Diddlesworth Heist, a thrilling SQL-based mystery game. The night of the grand party at the Diddlesworth estate ended in chaos when the family’s prized heirloom vanished from the safe. But things aren’t as they seem—no forced entry, no stolen goods, just a changed safe combination and a trail of encrypted taunts left by an elusive thief. As the investigation unfolds, a sinister truth emerges: the thief has been murdered.
+            Step into the shoes of a digital detective in SQL Sleuth: The Diddlesworth Heist, a thrilling SQL-based mystery game. The night of the grand party at the Diddlesworth estate ended in chaos when the family's prized heirloom vanished from the safe. But things aren't as they seem—no forced entry, no stolen goods, just a changed safe combination and a trail of encrypted taunts left by an elusive thief. As the investigation unfolds, a sinister truth emerges: the thief has been murdered.
 
             Armed with SQL queries, you must sift through party statements, security footage, and cryptic evidence to uncover the truth. Who changed the safe combination? Why was the thief killed? And who among the high-society guests is hiding deadly secrets?
         </p>
         <p>
             🔹 Database-Driven Investigation – Query tables to analyze guest alibis, crime scene details, and security footage.<br />
             🔹 Decryption Challenges – Break encoded messages left behind by the thief.<br />
-            🔹 Plot Twists & Red Herrings – Just when you think you’ve cracked the case, new revelations emerge.<br />
+            🔹 Plot Twists & Red Herrings – Just when you think you've cracked the case, new revelations emerge.<br />
             🔹 Beginner-Friendly SQL Puzzles – Solve the mystery using simple JOINs, WHERE clauses, and aggregations.<br />
 
-            Do you have the skills to unmask the killer and retrieve the lost heirloom? It’s time to query the truth.
+            Do you have the skills to unmask the killer and retrieve the lost heirloom? It's time to query the truth.
         </p>
 
         
