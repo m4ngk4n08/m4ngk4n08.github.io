@@ -23,18 +23,17 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "postinstall": "echo 'Base URL set to /Github-Pages/'",
     "check-assets": "ls -la dist/assets"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m4ngk4n08/Github-Pages.git"
+    "url": "git+https://github.com/m4ngk4n08/m4ngk4n08.github.io.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/m4ngk4n08/Github-Pages/issues"
+    "url": "https://github.com/m4ngk4n08/m4ngk4n08.github.io/issues"
   },
-  "homepage": "https://github.com/m4ngk4n08/Github-Pages#readme"
+  "homepage": "https://m4ngk4n08.github.io/"
 }

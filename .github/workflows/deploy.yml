@@ -27,7 +27,7 @@ jobs:
         
       - name: Build
         run: |
-          echo "Building with base URL: /Github-Pages/"
+          echo "Building with base URL: /"
           npm run build
           ls -la dist/assets
         

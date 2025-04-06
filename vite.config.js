@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Base URL for GitHub Pages deployment
-  base: '/',  // This should match your repository name
+  base: '/',  // This should be '/' for username.github.io repositories
   
   // Base directory for the project
   root: './',
