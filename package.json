@@ -1,0 +1,36 @@
+{
+  "name": "github-pages",
+  "version": "1.0.0",
+  "description": "SQL Puzzle",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "esbuild": "^0.21.5",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "postcss": "^8.5.3",
+    "rollup": "^4.39.0",
+    "source-map-js": "^1.2.1"
+  },
+  "devDependencies": {
+    "vite": "^6.2.5"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m4ngk4n08/m4ngk4n08.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m4ngk4n08/m4ngk4n08.github.io/issues"
+  },
+  "homepage": "https://github.com/m4ngk4n08/m4ngk4n08.github.io#readme"
+}

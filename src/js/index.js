@@ -1,8 +1,7 @@
-
 /**
  * Toggle the schema section
  */
-function toggleSection(){
+export function toggleSection(){
     var coll = document.getElementsByClassName("collapsible");  
     for(var i = 0; i < coll.length; i++){
         coll[i].classList.toggle("active");
@@ -14,3 +13,5 @@ function toggleSection(){
         }
     }
 }
+
+window.toggleSection = toggleSection;

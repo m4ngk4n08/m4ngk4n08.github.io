@@ -12,12 +12,15 @@ body {
 /* Banner Section */
 #banner {
     width: 100%;
-    height: 300px; /* Fixed height for the banner */
+    height: 350px; /* Fixed height for the banner */
     background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Ensure no overflow */
+    background-image: url(../assets/images/banner.jpg);
+    background-size: cover;
+    background-position: 10% 30%;
 }
 
 #banner img {

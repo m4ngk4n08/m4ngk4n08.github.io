@@ -8,58 +8,59 @@
         <!-- External Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material.min.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/src/css/main.css">
 
         <!-- External Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"></script>
-        <script src="/lib/sql-wasm.js"></script>
-        <script src="/js/index.js"> </script>
-        <script type="module" src="/js/key-section.js"></script>
-        <script type="module" src="/js/database.js"></script>
-        <script type="module" src="/js/sqlQuery-editor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sql.js@1.8.0/dist/sql-wasm.js"></script>
+        <script>
+        // Set the path to the WASM file
+        window.sqlWasmPath = "https://cdn.jsdelivr.net/npm/sql.js@1.8.0/dist/sql-wasm.wasm";
+        </script>
+        <script type="module" src="/src/js/index.js"></script>
+        <script type="module" src="/src/js/key-section.js"></script>
+        <script type="module" src="/src/js/database.js"></script>
+        <script type="module" src="/src/js/sqlQuery-editor.js"></script>
     </head>
 <body>
     <!-- Banner Section -->
     <div id="banner">
-        <img src="./assets/images/banner.jpg" alt="Who Dunnit One Banner" />
     </div>
 
     <!-- Main Content Section -->
     <div id="main-content">
         <h1>"The Encrypted Trail"</h1>
-        <p>
-            <div class="game-intro">
-                <p class="intro-text">
-                    An SQL-based mystery investigation game. Your task is to investigate a complex crime at the Diddlesworth estate by querying a database of evidence and witness statements.
+        <div class="game-intro">
+            <p class="intro-text">
+                An SQL-based mystery investigation game. Your task is to investigate a complex crime at the Diddlesworth estate by querying a database of evidence and witness statements.
+            </p>
+            <div class="case-details">
+                <h3>The Case</h3>
+                <p>
+                    During an exclusive party, the Diddlesworth family safe was compromised - not by force, but through a changed combination. The thief left behind encrypted messages, but was later found murdered. The evidence is stored in database tables containing party guest statements, security logs, and other crucial details. However, some key evidence remains encrypted and will require special decryption keys to access.
                 </p>
-                <div class="case-details">
-                    <h3>The Case</h3>
-                    <p>
-                        During an exclusive party, the Diddlesworth family safe was compromised - not by force, but through a changed combination. The thief left behind encrypted messages, but was later found murdered. The evidence is stored in database tables containing party guest statements, security logs, and other crucial details. However, some key evidence remains encrypted and will require special decryption keys to access.
-                    </p>
-                </div>
-                <div class="tools-section">
-                    <h3>Your Tools</h3>
-                    <ul>
-                        <li>An SQL query interface to examine the evidence database</li>
-                        <li>A schema diagram showing the database structure (click "Show Schema" to view)</li>
-                        <li>A decryption system to unlock encrypted witness statements</li>
-                        <li>A vault interface to test safe combinations</li>
-                    </ul>
-                </div>
-                <div class="mission">
-                    <h3>Your Mission</h3>
-                    <p>
-                        Use SQL queries to analyze the evidence, decrypt hidden messages, and ultimately uncover both the original thief and their killer. You'll need to master SELECT queries, examine relationships between tables, and piece together the timeline of events.
-                    </p>
-                </div>
             </div>
-        </p>
+            <div class="tools-section">
+                <h3>Your Tools</h3>
+                <ul>
+                    <li>An SQL query interface to examine the evidence database</li>
+                    <li>A schema diagram showing the database structure (click "Show Schema" to view)</li>
+                    <li>A decryption system to unlock encrypted witness statements</li>
+                    <li>A vault interface to test safe combinations</li>
+                </ul>
+            </div>
+            <div class="mission">
+                <h3>Your Mission</h3>
+                <p>
+                    Use SQL queries to analyze the evidence, decrypt hidden messages, and ultimately uncover both the original thief and their killer. You'll need to master SELECT queries, examine relationships between tables, and piece together the timeline of events.
+                </p>
+            </div>
+        </div>
         
         <!-- createa a collapsible section and put it here -->
         <div class="collapsible-section">
-            <button type="button" class="collapsible" onClick="toggleSection()">Click to show Schema</button>
+            <button type="button" class="collapsible" onClick="toggleSection()">Click to show Database Schema</button>
             <div class="content"></div>
         </div>
         <div class="row">
@@ -77,7 +78,7 @@
         </div>
         <div id="section-result"></div>
 
-        <br/ >
+        <br />
         <!-- SQL Query Section -->
         <div id="sql-query-section">
             <textarea style="text-align: left!important;" id="sqlQuery" rows="10" cols="50" autocomplete="false" placeholder="Enter your SQL query here..."></textarea>
