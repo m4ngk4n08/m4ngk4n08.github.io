@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Base URL for GitHub Pages deployment
-  base: '/Github-Pages/',  // Replace with your repository name
+  base: '/',  // This should match your repository name
   
   // Base directory for the project
   root: './',
@@ -16,7 +16,7 @@ export default defineConfig({
     outDir: './dist',
     
     // Directory for assets in the build output
-    assetsDir: './assets',
+    assetsDir: 'assets',
     
     // Empty the output directory before building
     emptyOutDir: true,

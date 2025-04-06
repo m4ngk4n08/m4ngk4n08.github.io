@@ -23,7 +23,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "postinstall": "echo 'Base URL set to /Github-Pages/'"
+    "postinstall": "echo 'Base URL set to /Github-Pages/'",
+    "check-assets": "ls -la dist/assets"
   },
   "repository": {
     "type": "git",

@@ -29,6 +29,7 @@ jobs:
         run: |
           echo "Building with base URL: /Github-Pages/"
           npm run build
+          ls -la dist/assets
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
