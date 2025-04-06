@@ -1,16 +1,20 @@
 import { Database } from './database.js';
 
+/**
+ * 
+ * @param {*} key 
+ * @returns 
+ */
 function checkKey(key) {
     // check if key is empty
-    const ckey = key.trim();
+    var ckey = key.trim();
     if (!ckey) {
         return;
     }
 
     try {
-        const encryptedKey = encryptKey(ckey);
-        const res = Database.execute("select * from encrypted_keys where key = ?", [encryptedKey]);
-        
+        const eKey = encryptKey(ckey);
+        const res = Database.execute(`select * from encrypted_keys where key = '${eKey}'`);
         if (res.length <= 0) {
             document.getElementById("section-result").innerHTML = "Key not found";
             return;
@@ -21,18 +25,18 @@ function checkKey(key) {
             return;
         }
 
-        Database.execute("update encrypted_keys set decrypted = 1 where key = ?", [encryptedKey]);
+        Database.execute(`update encrypted_keys set decrypted = 1 where key = '${eKey}'`);
         document.getElementById("section-result").innerHTML = `${res[0].values[0][2]} are decrypted!`;
     } catch (error) {
         console.error("Error executing SQL query:", error);
         document.getElementById("section-result").innerHTML = "Error: " + error.message;
     }
 }
-
-/* 
-    encryptKey() are used to encrypt and decrypt the key
-    they are based on the XOR operation
-*/
+/**
+ * 
+ * @param {*} key 
+ * @returns string
+ */
 function encryptKey(key) {
     var c = '';
     const input = 'whodunnitone';
@@ -43,19 +47,16 @@ function encryptKey(key) {
     for (var i = 0; i < input.length; i++) {
         var val1 = input[i].charCodeAt(0);
         var val2 = key[i].charCodeAt(0);
-
         var xorVal = val1 ^ val2;
         var xorValAsHexStr = xorVal.toString(16);
-
         if (xorValAsHexStr.length < 2) {
             xorValAsHexStr = "0" + xorValAsHexStr;
         }
-
         c += xorValAsHexStr;
     }
 
     return c;
 }
 
-// Export the functions
-export { checkKey, encryptKey };
+window.checkKey = checkKey;
+window.encryptKey = encryptKey;

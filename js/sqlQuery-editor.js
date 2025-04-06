@@ -1,5 +1,8 @@
 import { Database } from './database.js';
 
+/**
+ * Initialize the SQL query editor
+ */
 document.addEventListener("DOMContentLoaded", function(){
     // Initialize CodeMirror for SQL editor  
     const sqlEditor = CodeMirror.fromTextArea(document.getElementById("sqlQuery"),{
@@ -20,39 +23,42 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
     });
-
     document.getElementById("sqlQueryBtn").addEventListener("click", function(){
         const sqlQuery = sqlEditor.getValue();
         runQuery(sqlQuery);
     });
 });
 
+/**
+ * Run the query and display the result as a table
+ * @param {string} sqlQuery - The SQL query to run
+ */
 function runQuery(sqlQuery){
     if(sqlQuery === ""){
         return;
     }
-
     try{
         const result = Database.execute(sqlQuery);
-        
         // validate that the query starts with SELECT
         if(!sqlQuery.toLowerCase().startsWith("select")){
             document.getElementById("output").innerHTML = "Only select queries are allowed.";
             return;
         }
-
         if(result.length === 0 || result[0].values.length === 0){
             document.getElementById("output").innerHTML = "No results found.";
             return;
-        }
-        
+        }     
         displayResultAsTable(result[0].columns, result[0].values);
-
     } catch(error) {
         document.getElementById("output").innerHTML = "Error: " + error.message;
     }
 }
 
+/**
+ * Display the result as a table
+ * @param {string[]} columns - The columns of the result
+ * @param {string[][]} rows - The rows of the result
+ */
 function displayResultAsTable(columns, rows) {
     const table = document.createElement("table");
     table.setAttribute("border", "1");
@@ -102,6 +108,10 @@ function displayResultAsTable(columns, rows) {
     outputContainer.style.display = "block"; // show the output container
 }
 
+/**
+ * Generate a random string
+ * @returns {string} - The random string
+ */
 function generateRandomStr(){
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result = "";

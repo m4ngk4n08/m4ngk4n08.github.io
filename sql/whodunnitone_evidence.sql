@@ -5,7 +5,7 @@ CREATE TABLE evidence (
 );
 
 INSERT INTO evidence (item, description) VALUES
-('newspaper', 'newspaper that the culprit sends to you indicating there was a missing heirloom.'),
+('newspaper', 'newspaper that the culprit sends to you indicating there was a missing heirloom in the Diddlesworth family. And some encircled words that when you combine them it will from "TTEANEMSS"'),
 ('shiny marble', 'so shiny it can be sell for a cheap price.'),
 ('water gun', 'to abolish the fire if the fire is too big.'),
 ('piece of paper', 'along with the newspaper. There is a piece of paper with a statement that says "did you try to BURN THE PAPER"'),

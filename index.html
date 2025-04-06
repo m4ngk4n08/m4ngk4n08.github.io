@@ -14,6 +14,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/sql/sql.min.js"></script>
         <script src="/lib/sql-wasm.js"></script>
+        <script src="/js/index.js"> </script>
+        <script type="module" src="/js/key-section.js"></script>
         <script type="module" src="/js/database.js"></script>
         <script type="module" src="/js/sqlQuery-editor.js"></script>
     </head>
@@ -27,20 +29,39 @@
     <div id="main-content">
         <h1>"The Encrypted Trail"</h1>
         <p>
-            Step into the shoes of a digital detective in SQL Sleuth: The Diddlesworth Heist, a thrilling SQL-based mystery game. The night of the grand party at the Diddlesworth estate ended in chaos when the family's prized heirloom vanished from the safe. But things aren't as they seem—no forced entry, no stolen goods, just a changed safe combination and a trail of encrypted taunts left by an elusive thief. As the investigation unfolds, a sinister truth emerges: the thief has been murdered.
-
-            Armed with SQL queries, you must sift through party statements, security footage, and cryptic evidence to uncover the truth. Who changed the safe combination? Why was the thief killed? And who among the high-society guests is hiding deadly secrets?
+            <div class="game-intro">
+                <p class="intro-text">
+                    An SQL-based mystery investigation game. Your task is to investigate a complex crime at the Diddlesworth estate by querying a database of evidence and witness statements.
+                </p>
+                <div class="case-details">
+                    <h3>The Case</h3>
+                    <p>
+                        During an exclusive party, the Diddlesworth family safe was compromised - not by force, but through a changed combination. The thief left behind encrypted messages, but was later found murdered. The evidence is stored in database tables containing party guest statements, security logs, and other crucial details. However, some key evidence remains encrypted and will require special decryption keys to access.
+                    </p>
+                </div>
+                <div class="tools-section">
+                    <h3>Your Tools</h3>
+                    <ul>
+                        <li>An SQL query interface to examine the evidence database</li>
+                        <li>A schema diagram showing the database structure (click "Show Schema" to view)</li>
+                        <li>A decryption system to unlock encrypted witness statements</li>
+                        <li>A vault interface to test safe combinations</li>
+                    </ul>
+                </div>
+                <div class="mission">
+                    <h3>Your Mission</h3>
+                    <p>
+                        Use SQL queries to analyze the evidence, decrypt hidden messages, and ultimately uncover both the original thief and their killer. You'll need to master SELECT queries, examine relationships between tables, and piece together the timeline of events.
+                    </p>
+                </div>
+            </div>
         </p>
-        <p>
-            🔹 Database-Driven Investigation – Query tables to analyze guest alibis, crime scene details, and security footage.<br />
-            🔹 Decryption Challenges – Break encoded messages left behind by the thief.<br />
-            🔹 Plot Twists & Red Herrings – Just when you think you've cracked the case, new revelations emerge.<br />
-            🔹 Beginner-Friendly SQL Puzzles – Solve the mystery using simple JOINs, WHERE clauses, and aggregations.<br />
-
-            Do you have the skills to unmask the killer and retrieve the lost heirloom? It's time to query the truth.
-        </p>
-
         
+        <!-- createa a collapsible section and put it here -->
+        <div class="collapsible-section">
+            <button type="button" class="collapsible" onClick="toggleSection()">Click to show Schema</button>
+            <div class="content"></div>
+        </div>
         <div class="row">
             <!-- Decryption Section -->
             <div id="decryption-section">
