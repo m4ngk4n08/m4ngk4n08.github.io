@@ -1,30 +1,18 @@
 // Database singleton instance
 let dbInstance = null;
 
-// Import SQL files directly
-import whodunnitone_network_logs from '../sql/whodunnitone_network_logs.sql?raw';
-import whodunnitone_crime_scene_report from '../sql/whodunnitone_crime_scene_report.sql?raw';
-import whodunnitone_evidence from '../sql/whodunnitone_evidence.sql?raw';
-import whodunnitone_guest_list from '../sql/whodunnitone_guest_list.sql?raw';
-import whodunnitone_person from '../sql/whodunnitone_person.sql?raw';
-import whodunnitone_person_information from '../sql/whodunnitone_person_information.sql?raw';
-import whodunnitone_security_footage from '../sql/whodunnitone_security_footage.sql?raw';
-import whodunnitone_statement from '../sql/whodunnitone_statement.sql?raw';
-import whodunnitone_safe_logs from '../sql/whodunnitone_safe_logs.sql?raw';
-import encrypted_keys from '../sql/encrypted_keys.sql?raw';
-
-// SQL file content array
-const SQL_CONTENTS = [
-    whodunnitone_crime_scene_report,
-    whodunnitone_evidence,
-    whodunnitone_guest_list,
-    whodunnitone_person,
-    whodunnitone_person_information,
-    whodunnitone_security_footage,
-    whodunnitone_statement,
-    whodunnitone_network_logs,
-    whodunnitone_safe_logs,
-    encrypted_keys
+// SQL file paths
+const SQL_FILES = [
+    './sql/whodunnitone_crime_scene_report.sql',
+    './sql/whodunnitone_evidence.sql',
+    './sql/whodunnitone_guest_list.sql',
+    './sql/whodunnitone_person.sql',
+    './sql/whodunnitone_person_information.sql',
+    './sql/whodunnitone_security_footage.sql',
+    './sql/whodunnitone_statement.sql',
+    './sql/whodunnitone_network_logs.sql',
+    './sql/whodunnitone_safe_logs.sql',
+    './sql/encrypted_keys.sql'
 ];
 
 /**
@@ -32,7 +20,7 @@ const SQL_CONTENTS = [
  * @param {string[]} sqlFilePaths - Array of SQL file paths to load
  * @returns {Promise<Object>} - The initialized database
  */
-async function initializeDatabase(SQL_CONTENTS = []) {
+async function initializeDatabase(sqlFilePaths = []) {
     // Return existing instance if already initialized
     if (dbInstance) return dbInstance;
 
@@ -46,12 +34,20 @@ async function initializeDatabase(SQL_CONTENTS = []) {
         dbInstance = new SQL.Database();
         
         // Load SQL files if provided
-        if (SQL_CONTENTS.length > 0) {
-            for(const sqlContent of SQL_CONTENTS){
-                try{
-                    dbInstance.exec(sqlContent);
-                }catch(error){
-                    console.error(`Error executing SQL:`, error);
+        if (sqlFilePaths.length > 0) {
+            for (const sqlFilePath of sqlFilePaths) {
+                try {
+                    // Fetch SQL file
+                    const response = await fetch(sqlFilePath);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load SQL file ${sqlFilePath}: ${response.statusText}`);
+                    }
+
+                    // Read and execute the SQL script
+                    const sqlScript = await response.text();
+                    dbInstance.exec(sqlScript);
+                } catch (error) {
+                    console.error(`Error loading SQL file ${sqlFilePath}:`, error);
                 }
             }
         } else {
@@ -89,7 +85,7 @@ function executeQuery(query) {
 }
 
 // Initialize the database when the module is loaded
-initializeDatabase(SQL_CONTENTS)
+initializeDatabase(SQL_FILES)
     .then(() => {
         console.log("Database loaded successfully!");
         // Enable buttons after database is loaded

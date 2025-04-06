@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  // Base URL for GitHub Pages deployment
+  base: '/Github-Pages/',  // Replace with your repository name
+  
   // Base directory for the project
   root: './',
   
