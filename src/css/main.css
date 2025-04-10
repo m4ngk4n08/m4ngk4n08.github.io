@@ -202,10 +202,7 @@ p {
     background-size:contain;
     height: 500px;
     margin-bottom:10px;
-}
-
-/* Dark reader workaround */
-.your-image-container {
+    /* Dark reader workaround */
     isolation: isolate;
     -webkit-isolation: isolate;
 }
