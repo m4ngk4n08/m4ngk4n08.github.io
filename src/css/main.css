@@ -203,3 +203,9 @@ p {
     height: 500px;
     margin-bottom:10px;
 }
+
+/* Dark reader workaround */
+.your-image-container {
+    isolation: isolate;
+    -webkit-isolation: isolate;
+}
